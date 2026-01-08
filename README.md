@@ -1,146 +1,66 @@
 # Uzay Simülasyonu Uygulaması
 
-Bursa Teknik Üniversitesi Bilgisayar Mühendisliği Bölümü, Algoritmalar ve Programlama dersi kapsamında geliştirilmiş konsol tabanlı bir fizik simülasyonu uygulamasıdır.
+Algoritmalar ve Programlama dersi için yaptığım konsol tabanlı fizik simülasyonu projesi.
 
-## 📋 Proje Hakkında
+## Proje Hakkında
 
-Bu proje, bir bilim insanının Güneş Sistemindeki farklı gezegenlerde ve uydularda (Merkür, Venüs, Dünya, Ay, Mars, Jüpiter, Satürn, Uranüs, Neptün) temel fizik deneylerini simüle etmesini sağlar. Program tamamen C programlama dili ile geliştirilmiş olup, konsol tabanlı çalışmaktadır.
+Bu program, farklı gezegenlerde ve uydularda (Merkür, Venüs, Dünya, Ay, Mars, Jüpiter, Satürn, Uranüs, Neptün) fizik deneyleri yapmamıza olanak sağlıyor. C dili ile yazıldı ve konsol üzerinden çalışıyor.
 
-Program, kullanıcıdan bilim insanının adını alır ve 9 farklı fizik deneyi seçeneği sunar. Her deney, 9 gök cismi için ayrı ayrı hesaplama yaparak sonuçları karşılaştırmalı olarak gösterir.
+Program başladığında isminizi giriyorsunuz, sonra 9 farklı deneyden birini seçip parametreleri giriyorsunuz. Program tüm gök cisimleri için sonuçları hesaplayıp gösteriyor.
 
-## 🔬 Deneyler ve Formüller
+## Deneyler
 
-Program 9 farklı fizik deneyi içermektedir:
+1. Serbest Düşme Deneyi - `h = (1/2) * g * t²`
+2. Yukarı Atış Deneyi - `h_max = v₀² / (2*g)`
+3. Ağırlık Deneyi - `G = m * g`
+4. Potansiyel Enerji Deneyi - `Ep = m * g * h`
+5. Hidrostatik Basınç Deneyi - `P = ρ * g * h`
+6. Arşimet Kaldırma Kuvveti - `Fk = ρ * g * V`
+7. Basit Sarkaç Periyodu - `T = 2π * √(L/g)`
+8. Sabit İp Gerilmesi - `T = m * g`
+9. Asansör Deneyi - `F = m * (g ± a)`
 
-1. **Serbest Düşme Deneyi** - `h = (1/2) * g * t²`
-   - Düşme süresi girilir, her gök cismi için düşme mesafesi hesaplanır.
+## Gök Cisimleri
 
-2. **Yukarı Atış Deneyi** - `h_max = v₀² / (2*g)`
-   - Başlangıç hızı girilir, her gök cismi için maksimum yükseklik hesaplanır.
+Program 9 gök cisminin yerçekimi ivmelerini kullanıyor:
+- Merkür: 3.703 m/s²
+- Venüs: 8.872 m/s²
+- Dünya: 9.8067 m/s²
+- Ay: 1.625 m/s²
+- Mars: 3.728 m/s²
+- Jüpiter: 25.93 m/s²
+- Satürn: 11.19 m/s²
+- Uranüs: 9.01 m/s²
+- Neptün: 11.28 m/s²
 
-3. **Ağırlık Deneyi** - `G = m * g`
-   - Kütle girilir, her gök cismi için ağırlık hesaplanır.
+## Nasıl Çalıştırılır
 
-4. **Kütleçekimsel Potansiyel Enerji Deneyi** - `Ep = m * g * h`
-   - Kütle ve yükseklik girilir, her gök cismi için potansiyel enerji hesaplanır.
-
-5. **Hidrostatik Basınç Deneyi** - `P = ρ * g * h`
-   - Sıvı yoğunluğu ve derinlik girilir, her gök cismi için basınç hesaplanır.
-
-6. **Arşimet Kaldırma Kuvveti Deneyi** - `Fk = ρ * g * V`
-   - Sıvı yoğunluğu ve batan hacim girilir, her gök cismi için kaldırma kuvveti hesaplanır.
-
-7. **Basit Sarkaç Periyodu Deneyi** - `T = 2π * √(L/g)`
-   - İp uzunluğu girilir, her gök cismi için sarkaç periyodu hesaplanır.
-
-8. **Sabit İp Gerilmesi Deneyi** - `T = m * g`
-   - Kütle girilir, her gök cismi için ip gerilmesi hesaplanır.
-
-9. **Asansör Deneyi** - `F = m * (g ± a)`
-   - Kütle, asansör ivmesi ve hareket yönü girilir, her gök cismi için etkin ağırlık hesaplanır.
-
-## 🪐 Gök Cisimleri ve Yerçekimi İvmeleri
-
-Program aşağıdaki gök cisimlerinin gerçek yerçekimi ivme değerlerini kullanır:
-
-| Gök Cismi | Yerçekimi İvmesi (m/s²) |
-|-----------|------------------------|
-| Merkür    | 3.703                  |
-| Venüs     | 8.872                  |
-| Dünya     | 9.8067                 |
-| Ay        | 1.625                  |
-| Mars      | 3.728                  |
-| Jüpiter   | 25.93                  |
-| Satürn    | 11.19                  |
-| Uranüs    | 9.01                   |
-| Neptün    | 11.28                  |
-
-## 🚀 Kullanım
-
-### Derleme
-
-Programı derlemek için:
-
+Derleme:
 ```bash
 gcc main.c -o uzay_simulasyonu -lm
 ```
 
-**Not:** `-lm` parametresi matematik kütüphanesini (math.h) bağlamak için gereklidir.
-
-### Çalıştırma
-
+Çalıştırma:
 ```bash
 ./uzay_simulasyonu
 ```
 
-### Program Akışı
+Program çalıştığında:
+1. İsminizi girin
+2. Deney numarasını seçin (1-9, çıkmak için -1)
+3. İstenen parametreleri girin
+4. Sonuçları görün
 
-1. Program başladığında bilim insanının adı istenir.
-2. Deney menüsü gösterilir (1-9 arası deneyler).
-3. Kullanıcı bir deney numarası seçer (çıkış için -1).
-4. Seçilen deneye göre gerekli parametreler istenir.
-5. Tüm gök cisimleri için sonuçlar hesaplanır ve listelenir.
-6. Program sonlandırılana kadar (kullanıcı -1 tuşlayana kadar) döngü devam eder.
+## Teknik Özellikler
 
-## 💻 Teknik Detaylar
+- C programlama dili
+- Pointer aritmetiği kullanımı (`*(ptr + i)`)
+- Ternary operatör ile negatif değer kontrolü
+- Modüler yapı (her deney ayrı fonksiyon)
+- Pointer parametreleri
 
-### Programlama Özellikleri
+## Kullanılan Kütüphaneler
 
-- **Dil:** C
-- **Derleyici:** GCC
-- **Kütüphaneler:** 
-  - `stdio.h` - Girdi/çıktı işlemleri
-  - `stdlib.h` - Standart kütüphane
-  - `math.h` - Matematiksel fonksiyonlar (sqrt)
-
-### Kullanılan Programlama Teknikleri
-
-- **Pointer Aritmetiği:** Tüm dizi erişimlerinde pointer aritmetiği kullanılmıştır (`*(ptr + i)` formatında)
-- **Pointer Parametreleri:** Fonksiyonlara pointer ile parametre geçirimi
-- **Modüler Programlama:** Her deney ayrı bir fonksiyon olarak tasarlanmış
-- **Girdi Doğrulama:** Negatif değer kontrolü ternary operatör ile yapılmış (`deger = (deger < 0) ? -deger : deger`)
-- **Fonksiyon Prototipleri:** Kod organizasyonu için önceden tanımlama
-
-### Önemli Fonksiyonlar
-
-- `deneyler()` - Deney menüsünü gösterir
-- `secim()` - Kullanıcıdan deney numarası alır
-- `serbest_dusme()` - Serbest düşme hesaplaması yapar
-- `yukari_atis()` - Yukarı atış hesaplaması yapar
-- `agirlik()` - Ağırlık hesaplaması yapar
-- `potansiyel()` - Potansiyel enerji hesaplaması yapar
-- `hidrostatik()` - Hidrostatik basınç hesaplaması yapar
-- `kaldirma_kuvveti()` - Kaldırma kuvveti hesaplaması yapar
-- `periyod()` - Sarkaç periyodu hesaplaması yapar
-- `ip_gerilmesi()` - İp gerilmesi hesaplaması yapar
-- `asansor()` - Asansör deneyi hesaplaması yapar
-
-### Kod Özellikleri
-
-- Tüm dizi erişimleri pointer aritmetiği ile yapılmıştır
-- Negatif değer kontrolü ternary operatör ile gerçekleştirilmiştir
-- Fonksiyonlar pointer parametreleri kullanarak çağrılmaktadır
-- Program `do-while` döngüsü ile sürekli çalışır, kullanıcı -1 tuşlayana kadar devam eder
-
-## 📝 Özellikler
-
-- ✅ 9 farklı gök cismi için karşılaştırmalı hesaplama
-- ✅ 9 farklı fizik deneyi
-- ✅ Kullanıcı dostu menü sistemi
-- ✅ Negatif değer kontrolü (ternary operatör ile)
-- ✅ Pointer aritmetiği kullanımı
-- ✅ Modüler ve okunabilir kod yapısı
-
-## 🔧 Gereksinimler
-
-- GCC derleyici
-- C standart kütüphaneleri
-- Math kütüphanesi (libm)
-
-## 📄 Lisans
-
-Bu proje eğitim amaçlı geliştirilmiştir.
-
----
-
-*Bu proje bireysel olarak geliştirilmiştir.*
+- `stdio.h` - Girdi/çıktı
+- `stdlib.h` - Standart kütüphane
+- `math.h` - Matematiksel işlemler
