@@ -65,4 +65,4 @@ Program çalıştığında:
 - `stdlib.h` - Standart kütüphane
 - `math.h` - Matematiksel işlemler
 
-ss
+
