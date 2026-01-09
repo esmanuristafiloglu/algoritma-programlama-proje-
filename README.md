@@ -64,3 +64,5 @@ Program çalıştığında:
 - `stdio.h` - Girdi/çıktı
 - `stdlib.h` - Standart kütüphane
 - `math.h` - Matematiksel işlemler
+
+ss
